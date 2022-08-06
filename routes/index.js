@@ -82,4 +82,11 @@ router.post('/create', async function (req, res) {
     res.redirect('/')
 })
 
+router.get('/getUsers',function (req, res) {
+    const sinhVienlist =mongoose.model('tbTenanhs',STUDENT);
+     sinhVienlist.find({},function (error, result) {
+        res.send(result);
+     })
+})
+
 module.exports = router;
